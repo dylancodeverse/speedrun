@@ -138,30 +138,35 @@ export default function Portfolio() {
                     <h2 className="text-3xl font-bold text-center text-purple-300 mb-10">Mes Projets</h2>
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                         {Object.values(projects).map((project, i) => (
-                            <motion.div
-                                key={project.slug}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: i * 0.2 }}
-                                viewport={{ once: true }}
-                                className="bg-gradient-to-br from-purple-800/60 to-indigo-900/70 p-5 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+                            <Link
+                                to={`/projets/${project.slug}`}
                             >
-                                <div className="overflow-hidden rounded-xl mb-4">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-40 object-cover rounded-xl border border-purple-500"
-                                    />
-                                </div>
-                                <h3 className="text-lg font-semibold text-pink-400">{project.shortTitle}</h3>
-                                <p className="text-sm text-gray-300 mt-2">{project.preview}</p>
-                                <Link
-                                    to={`/projets/${project.slug}`}
-                                    className="inline-block mt-4 text-sm text-pink-400 hover:text-pink-300 underline"
+                                <motion.div
+                                    key={project.slug}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: i * 0.2 }}
+                                    viewport={{ once: true }}
+                                    className="bg-gradient-to-br from-purple-800/60 to-indigo-900/70 p-5 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
                                 >
-                                    Voir le projet →
-                                </Link>
-                            </motion.div>
+                                    <div className="overflow-hidden rounded-xl mb-4">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-40 object-cover rounded-xl border border-purple-500"
+                                        />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-pink-400">{project.shortTitle}</h3>
+                                    <p className="text-sm text-gray-300 mt-2">{project.preview}</p>
+                                    <Link
+                                        to={`/projets/${project.slug}`}
+                                        className="inline-block mt-4 text-sm text-pink-400 hover:text-pink-300 underline"
+                                    >
+                                        Voir le projet →
+                                    </Link>
+                                </motion.div>
+                            </Link>
+
                         ))}
                     </div>
                 </section>
