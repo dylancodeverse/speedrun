@@ -2,52 +2,12 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
+import projects from "./data/projects";
 
-const projectData = {
-  mybudget: {
-    title: "MyBudget",
-    description: "Application mobile de gestion budgétaire personnelle en Flutter.",
-    videoId: "ha0ZmyguVYI",
-    highlights: [
-      "Ajout de dépenses/revenus avec catégorisation",
-      "Stockage cloud avec Firebase (auth, Firestore, Storage)",
-      "Interface responsive et animations fluides",
-      "Visualisation graphique des données budgétaires",
-    ],
-    techs: ["Flutter", "Firebase", "Provider", "Chart.js", "Responsive UI"],
-    github: "https://github.com/dylancodeverse/mybudget",
-  },
-  "portfolio-3d": {
-    title: "Portfolio 3D",
-    description: "Expérience immersive en 3D pour présenter mes compétences et projets.",
-    videoId: "dQw4w9WgXcQ",
-    highlights: [
-      "Utilisation de React Three Fiber pour les scènes 3D",
-      "Navigation fluide avec camera controls",
-      "Animations GSAP synchronisées",
-      "Responsive desktop & mobile",
-    ],
-    techs: ["React", "Three.js", "GSAP", "Framer Motion"],
-    github: "https://github.com/dylancodeverse/portfolio-3d",
-  },
-  "mini-erp-java": {
-    title: "Mini ERP Java",
-    description: "Backend ERP modulaire pour la gestion d’inventaire, utilisateurs et statistiques.",
-    videoId: "tgbNymZ7vqY",
-    highlights: [
-      "Architecture n-tiers avec Spring Boot",
-      "Modules découplés : stock, utilisateurs, logs",
-      "Gestion des droits par rôles",
-      "Intégration avec base PostgreSQL",
-    ],
-    techs: ["Java", "Spring Boot", "PostgreSQL", "JPA", "Swagger"],
-    github: "https://github.com/dylancodeverse/mini-erp",
-  },
-};
 
 export default function ProjectPage() {
   const { slug } = useParams();
-  const project = projectData[slug];
+  const project = projects[slug];
   const [isOpen, setIsOpen] = useState(false);
 
   if (!project) {

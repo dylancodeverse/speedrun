@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "./Header";
 import { Link } from "react-router-dom";
+import projects from "./data/projects";
 
 export default function Portfolio() {
     const { scrollY } = useScroll();
@@ -131,32 +132,14 @@ export default function Portfolio() {
                     </div>
                 </section>
 
+
                 {/* Projets */}
                 <section id="projets" className="relative z-20 scroll-mt-28">
                     <h2 className="text-3xl font-bold text-center text-purple-300 mb-10">Mes Projets</h2>
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {[
-                            {
-                                title: "MyBudget",
-                                description: "App Flutter de gestion budgétaire avec Firebase & UI responsive.",
-                                link: "https://github.com/dylancodeverse/mybudget",
-                                image: "/images/image1.png",
-                            },
-                            {
-                                title: "Portfolio 3D",
-                                description: "Portfolio interactif avec React Three Fiber et animations immersives.",
-                                link: "https://github.com/dylancodeverse/portfolio-3d",
-                                image: "/images/image2.png",
-                            },
-                            {
-                                title: "Mini ERP Java",
-                                description: "ERP modulaire backend Java/Spring pour la gestion de stock et utilisateurs.",
-                                link: "https://github.com/dylancodeverse/mini-erp",
-                                image: "/images/image3.png",
-                            },
-                        ].map((project, i) => (
+                        {Object.values(projects).map((project, i) => (
                             <motion.div
-                                key={i}
+                                key={project.slug}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: i * 0.2 }}
@@ -170,10 +153,10 @@ export default function Portfolio() {
                                         className="w-full h-40 object-cover rounded-xl border border-purple-500"
                                     />
                                 </div>
-                                <h3 className="text-lg font-semibold text-pink-400">{project.title}</h3>
-                                <p className="text-sm text-gray-300 mt-2">{project.description}</p>
+                                <h3 className="text-lg font-semibold text-pink-400">{project.shortTitle}</h3>
+                                <p className="text-sm text-gray-300 mt-2">{project.preview}</p>
                                 <Link
-                                    to={`/projets/${project.title.toLowerCase().replace(/\s+/g, "-")}`}
+                                    to={`/projets/${project.slug}`}
                                     className="inline-block mt-4 text-sm text-pink-400 hover:text-pink-300 underline"
                                 >
                                     Voir le projet →
@@ -182,7 +165,6 @@ export default function Portfolio() {
                         ))}
                     </div>
                 </section>
-
 
                 {/* Compétences */}
                 <section id="competences" className="scroll-mt-28">
