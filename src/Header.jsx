@@ -11,6 +11,7 @@ export default function Header() {
     { id: "projets", label: "Projets" },
     { id: "competences", label: "Compétences" },
     { id: "langues", label: "Langues" },
+    { id: "contact", label: "Contacts" },
   ];
 
   return (

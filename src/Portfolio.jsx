@@ -20,8 +20,12 @@ export default function Portfolio() {
 
             {/* Fond animé */}
             <motion.div
-                className="fixed top-0 left-0 w-full h-full z-0 bg-gradient-to-br from-purple-900 via-black to-indigo-900 opacity-60"
-                style={{ y: backgroundY }}
+                className="fixed top-0 left-0 w-full h-full z-0 bg-gradient-to-br from-purple-900 via-black to-indigo-900 pointer-events-none"
+                style={{
+                    y: backgroundY,
+                    opacity: useTransform(scrollY, [0, 1000, 1600], [0.6, 0.6, 0]),
+                    translateY: useTransform(scrollY, [1200, 1800], ["0%", "100%"]),
+                }}
             />
 
             {/* Particules décoratives */}
@@ -211,44 +215,78 @@ export default function Portfolio() {
                         <li>Allemand (B1)</li>
                     </ul>
                 </section>
-            </div>
-            <section id="contact" className="bg-black py-20 text-center px-6">
-                <h2 className="text-3xl font-bold text-purple-300 mb-8">Me Contacter</h2>
-                <form
-                    action="https://formspree.io/f/{TON_ID_FORM}"
-                    method="POST"
-                    className="max-w-xl mx-auto grid gap-6"
-                >
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Votre nom"
-                        required
-                        className="px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-500"
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Votre email"
-                        required
-                        className="px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-500"
-                    />
-                    <textarea
-                        name="message"
-                        rows={5}
-                        placeholder="Votre message"
-                        required
-                        className="px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-500"
-                    />
-                    <button
-                        type="submit"
-                        className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-semibold transition duration-300"
-                    >
-                        Envoyer
-                    </button>
-                </form>
-            </section>
+                <section id="contact" className="bg-black py-20 text-center px-6">
+                    <h2 className="text-3xl font-bold text-purple-300 mb-12">Me Contacter</h2>
 
+                    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 text-left items-start">
+
+                        {/* WhatsApp Section */}
+                        <div className="space-y-6">
+                            <h3 className="text-2xl font-semibold text-green-400">Contact rapide</h3>
+                            <p className="text-gray-400">
+                                Tu peux me contacter directement via WhatsApp pour une réponse plus rapide :
+                            </p>
+
+                            <a
+                                href="https://wa.me/261344202702"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg text-lg transition-transform transform hover:scale-105"
+                            >
+                                <svg
+                                    className="w-6 h-6 fill-current"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"
+                                >
+                                    <path d="M380.9 97.1C339.1 55.3 282.5 32 221.8 32 99.4 32 0 131.5 0 253.7c0 45 11.7 88.3 34.1 126.7L0 480l102.6-33.6c36.5 19.9 77.4 30.3 119.2 30.3h.1c122.3 0 221.9-99.4 221.9-221.8 0-60.6-23.3-117.2-65.1-158.8zM221.8 438.3c-35.3 0-69.8-9.5-99.9-27.5l-7.1-4.2-60.8 19.9 20.2-59-4.6-7.3c-20.6-32.7-31.5-70.5-31.5-109.6 0-110.2 89.6-199.7 199.8-199.7 53.3 0 103.4 20.8 141.1 58.6 37.7 37.7 58.5 87.8 58.5 141.1 0 110.1-89.5 199.7-199.7 199.7zm117.3-138.1c-6.4-3.2-38-18.7-43.9-20.8-5.9-2.1-10.2-3.2-14.5 3.2-4.3 6.4-16.7 20.8-20.5 25.1-3.8 4.3-7.5 4.8-13.9 1.6-6.4-3.2-27.1-10-51.6-31.8-19-16.9-31.8-37.9-35.5-44.3-3.7-6.4-.4-9.9 2.8-13.1 2.9-2.9 6.4-7.5 9.6-11.2 3.2-3.8 4.3-6.4 6.4-10.7 2.1-4.3 1.1-8-0.5-11.2-1.6-3.2-14.5-34.9-19.8-47.7-5.2-12.6-10.5-10.9-14.5-11.1h-12.4c-4.3 0-11.2 1.6-17.1 8-5.9 6.4-22.4 21.9-22.4 53.5s22.9 62.2 26.1 66.5c3.2 4.3 44.8 68.3 108.7 95.8 15.2 6.6 27.1 10.5 36.3 13.4 15.2 4.8 29 4.1 39.9 2.5 12.2-1.8 38-15.5 43.4-30.5 5.3-15.1 5.3-28 3.7-30.5-1.7-2.3-5.9-3.8-12.3-6.9z" />
+                                </svg>
+                                WhatsApp Me
+                            </a>
+                        </div>
+
+                        {/* Formulaire Email */}
+                        <form
+                            action="https://formspree.io/f/xblykjjr"
+                            method="POST"
+                            className="grid gap-6"
+                        >
+                            <p className="text-gray-400">
+                                Ou remplis ce formulaire pour m’envoyer un e-mail directement à :{" "}
+                                <span className="text-purple-400 font-medium">ratianarivodylan@gmail.com</span>
+                            </p>
+
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Votre nom"
+                                required
+                                className="px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-500"
+                            />
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Votre email"
+                                required
+                                className="px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-500"
+                            />
+                            <textarea
+                                name="message"
+                                rows={5}
+                                placeholder="Votre message"
+                                required
+                                className="px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-500"
+                            />
+                            <button
+                                type="submit"
+                                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-semibold transition duration-300"
+                            >
+                                Envoyer
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
         </div>
     );
 }
