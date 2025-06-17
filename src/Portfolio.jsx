@@ -135,7 +135,7 @@ export default function Portfolio() {
 
                 {/* Projets */}
                 <section id="projets" className="relative z-20 scroll-mt-28">
-                    <h2 className="text-3xl font-bold text-center text-purple-300 mb-10">Mes Projets</h2>
+                    <h2 className="text-3xl font-bold text-center text-purple-300 mb-10">Mes Projets Récents</h2>
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                         {Object.values(projects).map((project, i) => (
                             <Link

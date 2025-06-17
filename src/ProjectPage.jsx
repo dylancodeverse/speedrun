@@ -76,14 +76,14 @@ export default function ProjectPage() {
         </div>
 
         {/* Retour */}
-        <div className="text-center mt-10">
+        {/* <div className="text-center mt-10">
           <a
             href="/#projets"
             className="inline-block text-sm text-gray-400 hover:text-white underline transition-colors"
           >
             ← Retour à mes projets
           </a>
-        </div>
+        </div> */}
       </div>
 
       {/* Lightbox video */}

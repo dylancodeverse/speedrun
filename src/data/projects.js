@@ -37,7 +37,7 @@ const projects = {
             "Connexion sécurisée au backend Java avec synchronisation encryptée AES-256"
         ],
         techs: ["React", "Tailwind CSS", "Chart.js", "Node.js", "Spring Boot", "PostgreSQL"],
-        github: "https://github.com/dylancodeverse/smart-time-tracking-backoffice", // ou lien privé
+        github: "https://github.com/dylancodeverse/Clock-in-supervision-interface", // ou lien privé
     },
 
 };
