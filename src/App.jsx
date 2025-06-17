@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Header from "./Header";
 
 export default function Portfolio() {
   const { scrollY } = useScroll();
@@ -11,7 +12,10 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden">
+    <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden scroll-smooth">
+      {/* Navigation fixe */}
+      <Header/>
+
       {/* Fond animé */}
       <motion.div
         className="fixed top-0 left-0 w-full h-full z-0 bg-gradient-to-br from-purple-900 via-black to-indigo-900 opacity-60"
@@ -34,7 +38,7 @@ export default function Portfolio() {
       </div>
 
       {/* Contenu principal */}
-      <div className="relative z-20 max-w-5xl mx-auto px-6 py-20 space-y-24">
+      <div className="relative z-20 max-w-5xl mx-auto px-6 pt-32 pb-20 space-y-24" id="profil">
         {/* Header */}
         <motion.div style={{ y: textY }} className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
@@ -51,7 +55,7 @@ export default function Portfolio() {
           </p>
         </motion.div>
 
-        {/* Résumé */}
+        {/* Profil */}
         <section>
           <h2 className="text-2xl font-semibold text-purple-300 mb-2">Profil</h2>
           <p className="text-gray-300 leading-relaxed">
@@ -60,11 +64,20 @@ export default function Portfolio() {
             ajoutée technique et orientés utilisateur.
           </p>
         </section>
+        <div className="mt-6 flex justify-center">
+          <a
+            href="/CV_Dylan_Ratianarivo.pdf"
+            download
+            className="px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-full font-medium transition"
+          >
+            Télécharger mon CV
+          </a>  
+        </div>
+
 
         {/* Expériences */}
-        <section>
-          <h2 className="text-2xl font-semibold text-purple-300 mb-4">Expériences Professionnelles</h2>
-
+        <section id="experiences" className="scroll-mt-28">
+          <h2 className="text-2xl font-semibold text-purple-300 mb-4" >Expériences Professionnelles</h2>
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-bold text-pink-400">Développeur d’application mobile Flutter</h3>
@@ -98,7 +111,7 @@ export default function Portfolio() {
         </section>
 
         {/* Éducation */}
-        <section>
+        <section id="education" className="scroll-mt-28">
           <h2 className="text-2xl font-semibold text-purple-300 mb-4">Éducation</h2>
           <div className="space-y-2 text-gray-300">
             <div>
@@ -112,8 +125,62 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* Projets stylés */}
+        <section id="projets" className="relative z-20 scroll-mt-28">
+          <h2 className="text-3xl font-bold text-center text-purple-300 mb-10">Mes Projets</h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "MyBudget",
+                description: "App Flutter de gestion budgétaire avec Firebase & UI responsive.",
+                link: "https://github.com/dylancodeverse/mybudget",
+                image: "/images/image1.png",
+              },
+              {
+                title: "Portfolio 3D",
+                description: "Portfolio interactif avec React Three Fiber et animations immersives.",
+                link: "https://github.com/dylancodeverse/portfolio-3d",
+                image: "/images/image2.png",
+              },
+              {
+                title: "Mini ERP Java",
+                description: "ERP modulaire backend Java/Spring pour la gestion de stock et utilisateurs.",
+                link: "https://github.com/dylancodeverse/mini-erp",
+                image: "/images/image3.png",
+              },
+            ].map((project, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-purple-800/60 to-indigo-900/70 p-5 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+              >
+                <div className="overflow-hidden rounded-xl mb-4">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-40 object-cover rounded-xl border border-purple-500"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-pink-400">{project.title}</h3>
+                <p className="text-sm text-gray-300 mt-2">{project.description}</p>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  className="inline-block mt-4 text-sm text-blue-400 hover:text-blue-300 underline"
+                >
+                  Voir sur GitHub →
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+
         {/* Compétences */}
-        <section>
+        <section id="competences" className="scroll-mt-28">
           <h2 className="text-2xl font-semibold text-purple-300 mb-4">Compétences Techniques</h2>
           <div className="flex flex-wrap gap-3 text-sm">
             {[
@@ -134,7 +201,7 @@ export default function Portfolio() {
         </section>
 
         {/* Langues */}
-        <section>
+        <section id="langues" className="scroll-mt-28">
           <h2 className="text-2xl font-semibold text-purple-300 mb-4">Langues</h2>
           <ul className="list-disc list-inside text-gray-300">
             <li>Malagasy</li>
