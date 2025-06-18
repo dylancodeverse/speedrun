@@ -47,7 +47,13 @@ export default function Portfolio() {
             {/* Contenu principal */}
             <div className="relative z-20 max-w-5xl mx-auto px-6 pt-32 pb-20 space-y-24" id="profil">
                 {/* Header */}
-                <motion.div style={{ y: textY }} className="text-center">
+                <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    >
+
                     <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
                         DYLAN RATIANARIVO
                     </h1>
@@ -63,14 +69,19 @@ export default function Portfolio() {
                 </motion.div>
 
                 {/* Profil */}
-                <section>
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                >
                     <h2 className="text-2xl font-semibold text-purple-300 mb-2">Profil</h2>
                     <p className="text-gray-300 leading-relaxed">
                         Développeur Full Stack spécialisé en Flutter et Java, j’interviens sur l’ensemble du cycle de vie
                         applicatif — de l’architecture backend à l’interface mobile. Je m’engage dans des projets à haute valeur
                         ajoutée technique et orientés utilisateur.
                     </p>
-                </section>
+                </motion.section>
                 <div className="mt-6 flex justify-center">
                     <a
                         href="/CV_Dylan_Ratianarivo.pdf"
@@ -83,7 +94,13 @@ export default function Portfolio() {
 
 
                 {/* Expériences */}
-                <section id="experiences" className="scroll-mt-28">
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    id="experiences" className="scroll-mt-28"
+                >
                     <h2 className="text-2xl font-semibold text-purple-300 mb-4" >Expériences Professionnelles</h2>
                     <div className="space-y-6">
                         <div>
@@ -115,10 +132,17 @@ export default function Portfolio() {
                             </ul>
                         </div>
                     </div>
-                </section>
+                </motion.section>
+
 
                 {/* Éducation */}
-                <section id="education" className="scroll-mt-28">
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    id="education" className="scroll-mt-28"
+                >                
                     <h2 className="text-2xl font-semibold text-purple-300 mb-4">Éducation</h2>
                     <div className="space-y-2 text-gray-300">
                         <div>
@@ -130,7 +154,8 @@ export default function Portfolio() {
                             <p className="text-sm">Saint Michel Amparibe · 2009 – 2021</p>
                         </div>
                     </div>
-                </section>
+                </motion.section>                
+
 
 
                 {/* Projets */}
@@ -168,6 +193,30 @@ export default function Portfolio() {
                             </Link>
 
                         ))}
+                        {/* Carte GitHub statique */}
+                        <motion.a
+                            href="https://github.com/dylancodeverse"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: projects.length * 0.2 }}
+                            viewport={{ once: true }}
+                            className="bg-gradient-to-br from-purple-800/60 to-indigo-900/70 p-5 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 flex flex-col justify-between"
+                        >
+                            <div className="overflow-hidden rounded-xl mb-4">
+                                <img
+                                    src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                                    alt="GitHub"
+                                    className="w-full h-40 object-contain bg-black rounded-xl border border-purple-500 p-4"
+                                />
+                            </div>
+                            <h3 className="text-lg font-semibold text-pink-400">Voir plus sur GitHub</h3>
+                            <p className="text-sm text-gray-300 mt-2">Découvre d'autres projets, forks et contributions sur mon dépôt GitHub.</p>
+                            <span className="inline-block mt-4 text-sm text-pink-400 hover:text-pink-300 underline">
+                                github.com/dylancodeverse →
+                            </span>
+                        </motion.a>
                     </div>
                 </section>
 
