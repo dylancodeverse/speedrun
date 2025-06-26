@@ -58,7 +58,7 @@ export default function Portfolio() {
                         DYLAN RATIANARIVO
                     </h1>
                     <p className="text-xl md:text-2xl mt-2 text-gray-300">
-                        Développeur Full Stack – Mobile (Flutter) & Backend (Java)
+                        Développeur Flutter & Backend Java (Spring Boot)
                     </p>
                     <p className="text-sm mt-4 text-gray-400">
                         Antananarivo, Madagascar · ratianarivodylan@gmail.com · +261 34 42 027 02 ·{" "}
@@ -104,20 +104,29 @@ export default function Portfolio() {
                     <h2 className="text-2xl font-semibold text-purple-300 mb-4" >Expériences Professionnelles</h2>
                     <div className="space-y-6">
                         <div>
-                            <h3 className="text-xl font-bold text-pink-400">Développeur d’application mobile Flutter</h3>
+                            <h3 className="text-xl font-bold text-pink-400">Développeur Flutter & Backend Java (Spring Boot)</h3>
                             <p className="text-sm text-gray-400">Coopérative Solà · Full remote · Nov 2024 – Avr 2025</p>
                             <ul className="list-disc list-inside text-gray-300 mt-2 space-y-1">
                                 <li>Développement complet d'une application Flutter pour opérations terrain</li>
+                                <li>Contribution directe au backend Java avec Spring Boot : développement du module de suivi des anomalies et implémentation de tableaux de bord pour la visualisation des données.</li>
                                 <li>Prédiction d'heure d’arrivée via modèle IA (régression linéaire)</li>
                                 <li>Synchronisation sécurisée AES-256 entre mobile et backoffice</li>
-                                <li>Collaboration backend Java pour optimisation des échanges</li>
                                 <li>
                                     <a
                                         href="https://www.youtube.com/watch?v=ha0ZmyguVYI"
                                         target="_blank"
                                         className="underline text-blue-400"
                                     >
-                                        Démo sur YouTube
+                                        Démo de l'application mobile sur YouTube
+                                    </a>
+                                </li>
+                                                                <li>
+                                    <a
+                                        href="https://www.youtube.com/watch?v=ZgIAV0Qb8Nk"
+                                        target="_blank"
+                                        className="underline text-blue-400"
+                                    >
+                                        Démo de l'application web sur YouTube
                                     </a>
                                 </li>
                             </ul>
